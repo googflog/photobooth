@@ -67,22 +67,22 @@ $(function() {
     img.src = "./img/overimg.png";
 
     img.onload = function() {
-      // context.drawImage(img, $video.width() / 2 - 749 / 2, 30); // 749 x 289
+      context.drawImage(img, $video.width() / 2 - 749 / 2, 30); // 749 x 289
 
-      var dstWidth = this.width * 0.5;
-      var dstHeight = this.height * 0.5;
+      // var dstWidth = this.width * 0.5;
+      // var dstHeight = this.height * 0.5;
 
-      context.drawImage(
-        img,
-        0,
-        0,
-        this.width,
-        this.height,
-        0,
-        0,
-        dstWidth,
-        dstHeight
-      );
+      // context.drawImage(
+      //   img,
+      //   0,
+      //   0,
+      //   this.width,
+      //   this.height,
+      //   0,
+      //   0,
+      //   dstWidth,
+      //   dstHeight
+      // );
       chgImg();
     };
   }
