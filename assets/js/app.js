@@ -63,7 +63,7 @@ $(function() {
     img.src = "./img/overimg.png";
 
     img.onload = function() {
-      context.drawImage(img, $(window).width() / 2 - 749 / 2, 30); // 749 x 289
+      context.drawImage(img, $video.width() / 2 - 749 / 2, 30); // 749 x 289
       chgImg();
     };
   }
