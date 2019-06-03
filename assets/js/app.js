@@ -57,7 +57,7 @@ $(function() {
   function drawVideo(callback) {
     $canvas.attr({ width: 1960, height: 2614 });
     $canvas.css({ width: "100%", height: "calc(100vw / 3 * 4)" });
-    context.drawImage(video, 0, 0, 980, 1307);
+    context.drawImage(video, 0, 0, 1960, 2614);
     callback();
   }
 
