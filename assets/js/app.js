@@ -3,7 +3,7 @@ $(function() {
     audio: false,
     video: {
       facingMode: {
-        exact: "environment" // リアカメラにアクセス
+        exact: "user" //"environment" // リアカメラにアクセス
       },
       width: 2614,
       height: 1960
