@@ -75,23 +75,23 @@ $(function() {
     img.src = "./img/overimg.png";
 
     img.onload = function() {
-      // context.drawImage(img, imgWidth / 2 - 749 / 2, 30); // 749 x 289
+      context.drawImage(img, imgWidth / 2 - 749 / 2, 30); // 749 x 289
       // context.drawImage(img, 30, 30); // 749 x 289
 
-      var dstWidth = this.width;
-      var dstHeight = this.height;
+      // var dstWidth = this.width;
+      // var dstHeight = this.height;
 
-      context.drawImage(
-        img,
-        imgWidth / 2 - dstWidth / 2,
-        0,
-        this.width,
-        this.height,
-        0,
-        0,
-        dstWidth,
-        dstHeight
-      );
+      // context.drawImage(
+      //   img,
+      //   imgWidth / 2 - dstWidth / 2,
+      //   0,
+      //   this.width,
+      //   this.height,
+      //   0,
+      //   0,
+      //   dstWidth,
+      //   dstHeight
+      // );
       chgImg();
     };
   }
