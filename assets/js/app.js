@@ -1,7 +1,7 @@
 const medias = {
   audio: false,
   video: {
-    facingMode: "user"
+    facingMode: "environment"
   }
 };
 const video = document.getElementById("video");
