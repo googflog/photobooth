@@ -18,7 +18,7 @@ $(function() {
   var $canvas = $("canvas");
   var $newImg = $("#newImg");
 
-  $video.attr({ width: $video.width() * 4, height: $video.height() * 4 });
+  $video.attr({ { width: 980, height: 1307 } });
   $video.css({ width: "100%", height: "calc(100vw / 3 * 4)" });
 
   promise.then(successCallback).catch(errorCallback);
@@ -55,8 +55,8 @@ $(function() {
   });
 
   function drawVideo(callback) {
-    $canvas.attr({ width: $video.width(), height: $video.height() });
-    $canvas.css({ width: $video.width() / 4, height: $video.height() / 4 });
+    $canvas.attr({ width: 980, height: 1307 });
+    $canvas.css({ width: "100%", height: "calc(100vw / 3 * 4)" });
     context.drawImage(video, 0, 0, $video.width(), $video.height());
     callback();
   }
