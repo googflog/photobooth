@@ -71,7 +71,7 @@ $(function() {
       context.drawImage(
         img,
         0,
-        0,
+        30,
         this.width,
         this.height,
         0,
