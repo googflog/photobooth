@@ -3,7 +3,7 @@ $(function() {
     audio: false,
     video: {
       facingMode: {
-        exact: "user" //"environment" // リアカメラにアクセス
+        exact: "environment" //"user" // リアカメラにアクセス
       },
       width: 2614,
       height: 1960
@@ -78,12 +78,12 @@ $(function() {
       // context.drawImage(img, imgWidth / 2 - 749 / 2, 30); // 749 x 289
       // context.drawImage(img, 30, 30); // 749 x 289
 
-      var dstWidth = this.width * 0.5;
-      var dstHeight = this.height * 0.5;
+      var dstWidth = this.width;
+      var dstHeight = this.height;
 
       context.drawImage(
         img,
-        0,
+        imgWidth / 2 - dstWidth / 2,
         0,
         this.width,
         this.height,
