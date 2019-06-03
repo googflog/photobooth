@@ -20,8 +20,14 @@ $(function() {
   var $canvas = $("canvas");
   var $newImg = $("#newImg");
 
-  $video.attr({ width: 1960, height: 2614 });
-  $video.css({ width: "100%", height: "calc(100vw / 3 * 4)" });
+  var imgWidth = 1960;
+  var imgHeight = 2614;
+
+  $video.attr({ width: imgWidth, height: imgHeight });
+  $video.css({
+    width: "100%",
+    height: "calc(100vw / " + imgHeight + " * " + imgWidth + ")"
+  });
 
   promise.then(successCallback).catch(errorCallback);
 
@@ -57,9 +63,9 @@ $(function() {
   });
 
   function drawVideo(callback) {
-    $canvas.attr({ width: 1960, height: 2614 });
+    $canvas.attr({ width: imgWidth, height: imgHeight });
     $canvas.css({ width: "100%", height: "calc(100vw / 3 * 4)" });
-    context.drawImage(video, 0, 0, 1960, 2614);
+    context.drawImage(video, 0, 0, imgWidth, imgHeight);
     callback();
   }
 
@@ -69,23 +75,23 @@ $(function() {
     img.src = "./img/overimg.png";
 
     img.onload = function() {
-      context.drawImage(img, 1960 / 2 - 749 / 2, 30); // 749 x 289
+      // context.drawImage(img, imgWidth / 2 - 749 / 2, 30); // 749 x 289
       // context.drawImage(img, 30, 30); // 749 x 289
 
-      // var dstWidth = this.width * 0.5;
-      // var dstHeight = this.height * 0.5;
+      var dstWidth = this.width * 0.5;
+      var dstHeight = this.height * 0.5;
 
-      // context.drawImage(
-      //   img,
-      //   0,
-      //   0,
-      //   this.width,
-      //   this.height,
-      //   0,
-      //   0,
-      //   dstWidth,
-      //   dstHeight
-      // );
+      context.drawImage(
+        img,
+        0,
+        0,
+        this.width,
+        this.height,
+        0,
+        0,
+        dstWidth,
+        dstHeight
+      );
       chgImg();
     };
   }
