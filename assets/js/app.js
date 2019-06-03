@@ -26,7 +26,7 @@ $(function() {
   $video.attr({ width: imgWidth, height: imgHeight });
   $video.css({
     width: "100%",
-    height: "calc(100vw / " + imgHeight + " * " + imgWidth + ")"
+    height: "calc(100vw * (" + imgHeight + " / " + imgWidth + "))"
   });
 
   promise.then(successCallback).catch(errorCallback);
