@@ -5,8 +5,8 @@ $(function() {
       facingMode: {
         exact: "environment" // リアカメラにアクセス
       },
-      width: 3921,
-      height: 2940
+      width: 2614,
+      height: 1960
     }
   };
   var video = document.getElementById("video");
