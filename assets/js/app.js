@@ -1,14 +1,23 @@
+const medias = {
+  audio: false,
+  video: {
+    facingMode: "user"
+  }
+};
+const video = document.getElementById("video");
+const promise = navigator.mediaDevices.getUserMedia(medias);
+
+promise.then(successCallback).catch(errorCallback);
+
+function successCallback(stream) {
+  video.srcObject = stream;
+}
+
+function errorCallback(err) {
+  // alert(err);
+}
+
 $(function() {
-  const medias = {
-    audio: false,
-    video: {
-      facingMode: {
-        exact: "environment" // リアカメラにアクセス
-      }
-    }
-  };
-  var video = document.getElementById("video");
-  var promise = navigator.mediaDevices.getUserMedia(medias);
   var canvas = document.getElementById("canvas");
   var context = canvas.getContext("2d");
 
@@ -20,16 +29,6 @@ $(function() {
 
   // $video.attr({ width: 980, height: 1307 });
   // $video.css({ width: "100%", height: "calc(100vw / 3 * 4)" });
-
-  promise.then(successCallback).catch(errorCallback);
-
-  function successCallback(stream) {
-    video.srcObject = stream;
-  }
-
-  function errorCallback(err) {
-    // alert(err);
-  }
 
   $shot_btn.on("click", function() {
     try {
