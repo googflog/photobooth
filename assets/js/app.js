@@ -20,9 +20,7 @@ $(function() {
 
   function loadLocalImage(e) {
     $("body").removeClass("center");
-    setTimeout(function() {
-      $footer_block.show();
-    }, 1000);
+    $footer_block.delay(1000).show(0);
     $upload_btn_label.hide();
 
     // ファイル情報を取得
@@ -33,7 +31,7 @@ $(function() {
       alert("画像を選択してください");
       $canvas.hide();
       $upload_btn_label.show();
-      $footer_block.hide();
+      $footer_block.stop().hide();
       $newImg_block.hide();
       $upload_btn.val("");
       $("body").addClass("center");
