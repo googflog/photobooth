@@ -1,4 +1,20 @@
 $(function() {
+  /** キャンバス */
+  var canvas = document.getElementById("canvas");
+  var context = canvas.getContext("2d");
+
+  /** 書き出す画像のサイズ設定 */
+  var imgWidth = 1960;
+  var imgHeight = 2614;
+
+  /** ボタン */
+  var $retry_btn = $("#retry_btn");
+  var $shot_btn = $("#shot_btn");
+  var $video = $("video");
+  var $canvas = $("canvas");
+  var $newImg = $("#newImg");
+
+  /** カメラの設定 */
   const medias = {
     audio: false,
     video: {
@@ -11,17 +27,6 @@ $(function() {
   };
   var video = document.getElementById("video");
   var promise = navigator.mediaDevices.getUserMedia(medias);
-  var canvas = document.getElementById("canvas");
-  var context = canvas.getContext("2d");
-
-  var $retry_btn = $("#retry_btn");
-  var $shot_btn = $("#shot_btn");
-  var $video = $("video");
-  var $canvas = $("canvas");
-  var $newImg = $("#newImg");
-
-  var imgWidth = 1960;
-  var imgHeight = 2614;
 
   $video.attr({ width: imgWidth, height: imgHeight });
   $video.css({
@@ -39,6 +44,7 @@ $(function() {
     // alert(err);
   }
 
+  /** 撮影ボタン */
   $shot_btn.on("click", function() {
     try {
       $video.hide();
@@ -46,13 +52,14 @@ $(function() {
       $shot_btn.hide();
       video.pause();
       drawVideo(function() {
-        chgCol();
+        drawDecoration();
       });
     } catch (e) {
       alert(e);
     }
   });
 
+  /** 再撮影ボタン */
   $retry_btn.on("click", function() {
     $canvas.hide();
     $shot_btn.show();
@@ -62,14 +69,22 @@ $(function() {
     video.play();
   });
 
+  /** 動画の静止画をキャンバスに描画 */
   function drawVideo(callback) {
-    $canvas.attr({ width: imgWidth, height: imgHeight });
-    $canvas.css({ width: "100%", height: "calc(100vw / 3 * 4)" });
+    $canvas.attr({
+      width: imgWidth,
+      height: imgHeight
+    });
+    $canvas.css({
+      width: "100%",
+      height: "calc(100vw / 3 * 4)"
+    });
     context.drawImage(video, 0, 0, imgWidth, imgHeight);
     callback();
   }
 
-  function chgCol() {
+  /** 飾り用画像を上書き */
+  function drawDecoration() {
     var img = new Image();
     img.crossOrigin = "anonymous";
     img.src = "./img/overimg.png";
@@ -92,12 +107,12 @@ $(function() {
       //   dstWidth,
       //   dstHeight
       // );
-      chgImg();
+      changeImg();
     };
   }
 
-  //canvasデータを画像に変換にする関数
-  function chgImg() {
+  /** canvasデータを画像に変換にする関数 */
+  function changeImg() {
     var png = canvas.toDataURL("image/png");
     document.getElementById("newImg").src = png;
 
