@@ -26,20 +26,23 @@
     <script async src="./assets/js/app.js"></script>
   </head>
   <body class="center">
-    <label for="upload_btn" id="upload_btn_label"
-      ><i class="material-icons">assignment_ind</i
-      ><input type="file" id="upload_btn" />
+    <!-- 初期 -->
+    <label for="upload_btn" id="upload_btn_label">
+      <i class="material-icons">
+        camera_alt
+      </i>
+      <input type="file" id="upload_btn" />
     </label>
+    <!-- 生成 -->
     <canvas id="canvas"></canvas>
+    <!-- 保存 -->
     <div id="newImg_block">
       <div id="navi">画像長押しで保存</div>
-      <img id="newImg" />
+      <img id="newImg" alt="生成画像" />
     </div>
     <div id="footer_block">
       <button id="retry_btn">
-        <i class="material-icons">
-          clear
-        </i>
+        <i class="material-icons">close</i>
       </button>
     </div>
   </body>
