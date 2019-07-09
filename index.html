@@ -11,16 +11,25 @@
     />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
     <script async src="./assets/js/app.js"></script>
   </head>
-  <body>
-    <div class="video_wrap">
-      <video id="video" autoplay playsinline></video>
-      <div class="cover"></div>
-    </div>
-    <button id="shot_btn">Shot</button>
+  <body class="center">
+    <label for="upload_btn" id="upload_btn_label"
+      ><i class="material-icons">assignment_ind</i
+      ><input type="file" id="upload_btn" />
+    </label>
     <canvas id="canvas"></canvas>
-    <img id="newImg" />
-    <button id="retry_btn">Retry</button>
+    <div id="newImg_block">
+      <div id="navi">画像長押しで保存</div>
+      <img id="newImg" />
+    </div>
+    <div id="footer_block">
+      <button id="retry_btn">
+        <i class="material-icons">
+          clear
+        </i>
+      </button>
+    </div>
   </body>
 </html>
