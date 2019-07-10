@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PhotoBooth</title>
+    <meta name="description" content="ディスプリプション">
+    <meta name="keywords" content="キーワード,キーワード,キーワード">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/app.css">
+    <!-- Progressive Web Apps 化-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PhotoBooth">
+    <link rel="apple-touch-icon" href="./assets/images/icon/app-icon.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="./assets/images/icon/app-icon.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="./assets/images/icon/app-icon.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="./assets/images/icon/app-icon.png" sizes="144x144">
+    <!-- Progressive Web Apps 化 オワリ-->
+  </head>
+  <body class="photobooth">
+    <!-- 生成-->
+    <canvas id="canvas"></canvas>
+    <!-- 初期-->
+    <div class="home active">
+      <!-- アップロード-->
+      <label id="upload_btn_label" for="upload_btn"><i class="material-icons">camera_alt</i>
+        <input id="upload_btn" type="file">
+      </label>
+      <button id="settings_btn"><i class="material-icons">settings</i></button>
+    </div>
+    <!-- セッティング-->
+    <div class="setting">
+      <canvas id="canvas_setting"></canvas>
+      <div>
+        <label id="upload_overlay_img" for="upload_overlay_img_btn"><i class="material-icons">insert_photo</i>
+          <input id="upload_overlay_img_btn" type="file">
+        </label>
+        <button id="reset_btn"><i class="material-icons">replay</i></button>
+      </div>
+      <button id="settings_close_btn"><i class="material-icons">close</i></button>
+    </div>
+    <!-- 生成された-->
+    <div class="generated">
+      <div id="newImg_block">
+        <div id="navi">画像長押しで保存</div><img id="newImg" alt="生成画像">
+      </div>
+      <div id="footer_block">
+        <button id="retry_btn"><i class="material-icons">close</i></button>
+      </div>
+    </div>
+    <div class="l-footer"></div>
+    <script src="./assets/scripts/app.js"></script>
+  </body>
+</html>
