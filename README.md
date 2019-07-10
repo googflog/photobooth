@@ -1,19 +1,27 @@
 ## 開発
 
+### 初期インストール
+
 `npm install`
 
 <!-- `gulp dev-pc` -->
 <!-- `gulp dev-sp` -->
 
+### 開発
+
 `npm run dev`
 
-## ステージング
+### ステージング
 
 `npm run stage`
 
-## 公開版
+### 公開版
 
 `npm run production`
+
+## DEMO
+
+<https://googflog.github.io/photobooth/dist/prod/>
 
 ## 参考
 

@@ -30,7 +30,9 @@ $(function() {
 
   /** デコレーション画像の設定 */
   let overlay_img_obj;
-  const default_overlay_img_path = "/assets/images/deco_2019_7_10.png";
+  const default_overlay_img_path = $(".setting").data(
+    "default_overlay_img_path"
+  );
 
   $canvas.attr({
     width: imgWidth,
