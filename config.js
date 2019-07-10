@@ -20,15 +20,15 @@ GA_ID = "";
 LANG = "ja";
 
 /** 書き出しファイル内パス FilePath */
-IMAGES_PATH = "/assets/images/";
+IMAGES_PATH = "./assets/images/";
 IMAGES_PATH_STAG = IMAGES_PATH;
 IMAGES_PATH_PROD = IMAGES_PATH;
 
-JS_PATH = "/assets/scripts/";
+JS_PATH = "./assets/scripts/";
 JS_PATH_STAG = JS_PATH;
 JS_PATH_PROD = JS_PATH;
 
-CSS_PATH = "/assets/styles/";
+CSS_PATH = "./assets/styles/";
 CSS_PATH_STAG = CSS_PATH;
 CSS_PATH_PROD = CSS_PATH;
 

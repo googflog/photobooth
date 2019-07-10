@@ -15,7 +15,7 @@ export function changeCanvasToImg(callback) {
 }
 
 /** scene切り替え */
-export function sceneToChange(target, delay = 100) {
+export function sceneToChange(target, delay = 50) {
   const $home = $(".home");
   const $setting = $(".setting");
   const $generated = $(".generated");
