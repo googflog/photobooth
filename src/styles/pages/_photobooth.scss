@@ -28,10 +28,15 @@ body {
 
   /* キャンバス */
 
-  #canvas {
+  #canvas,
+  #canvas_setting {
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+  }
+  #canvas {
+    display: none;
   }
 
   .home,
@@ -41,12 +46,12 @@ body {
     min-height: 100vh;
     display: none;
   }
+  .setting.active,
   .home.active {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .setting.active,
   .generated.active {
     display: block;
   }
@@ -68,6 +73,26 @@ body {
   #newImg {
     width: 100%;
   }
+  #settings_close_btn,
+  #settings_btn {
+    position: absolute;
+    top: calc-sp(20);
+    left: calc-sp(20);
+    background: transparent;
+    border: none;
+    opacity: 0.7;
+    width: calc-sp(88);
+    height: calc-sp(88);
+    padding: 0;
+    .material-icons {
+      font-size: calc-sp(88);
+      width: calc-sp(88);
+      height: calc-sp(88);
+    }
+  }
+  #upload_overlay_img {
+    margin-bottom: calc-sp(40);
+  }
 
   /* フッター */
 
@@ -75,7 +100,7 @@ body {
     position: relative;
     width: 100%;
     text-align: center;
-    padding: calc(100vw * 50 / 750) 0;
+    padding: calc-sp(50) 0;
   }
 
   /* ボタン */
@@ -84,10 +109,10 @@ body {
     border: none;
     cursor: pointer;
     outline: none;
+    position: relative;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    font-size: 6vw;
     font-weight: bold;
     text-align: center;
     margin: auto;
@@ -95,31 +120,52 @@ body {
     padding: 1em;
     text-decoration: none;
     background: #ffc51b;
+    width: calc-sp(200);
+    height: calc-sp(200);
     /*ボタン色*/
     color: #fff;
     border-bottom: solid 4px #ad6d1a;
     border-radius: calc(100vw * 30 / 750);
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   }
+  #settings_close_btn {
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.3);
+  }
+  #reset_btn {
+    width: calc-sp(100);
+    height: calc-sp(100);
+    background: #ccc;
+    border-bottom: solid 3px #888;
+    border-radius: calc(100vw * 20 / 750);
+    .material-icons {
+      font-size: calc-sp(60);
+      width: calc-sp(60);
+      height: calc-sp(60);
+      transform: translateY(calc-sp(1));
+    }
+  }
 
   label {
     border: none;
     cursor: pointer;
     outline: none;
+    position: relative;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    font-size: 6vw;
+    width: calc-sp(200);
+    height: calc-sp(200);
+    // font-size: 6vw;
     font-weight: bold;
     text-align: center;
     margin: auto;
     display: block;
-    padding: 1em;
+    // padding: 1em;
     text-decoration: none;
     background: #ffc51b;
     /*ボタン色*/
     color: #fff;
-    border-bottom: solid 4px #ad6d1a;
+    border-bottom: solid calc-sp(8) #ad6d1a;
     border-radius: calc(100vw * 30 / 750);
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     > input {
@@ -140,8 +186,16 @@ body {
   /* アイコンの設定 */
 
   .material-icons {
-    font-size: 20vw;
+    font-size: calc-sp(140);
     line-height: 1em;
+    width: calc-sp(140);
+    height: calc-sp(140);
+    position: absolute;
     margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(calc-sp(4));
   }
 }

@@ -8,14 +8,14 @@ export function onloadImg(src, callback) {
   };
 }
 /** canvasデータを画像に変換にする関数 */
-export function changeImg(callback) {
+export function changeCanvasToImg(callback) {
   const png = canvas.toDataURL("image/png");
   document.getElementById("newImg").src = png;
   callback();
 }
 
 /** scene切り替え */
-export function sceneToChange(target) {
+export function sceneToChange(target, delay = 100) {
   const $home = $(".home");
   const $setting = $(".setting");
   const $generated = $(".generated");
@@ -26,6 +26,7 @@ export function sceneToChange(target) {
   }
   if ($setting.hasClass("active")) $setting.removeClass("active");
   if ($generated.hasClass("active")) $generated.removeClass("active");
-
-  $("." + target).addClass("active");
+  setTimeout(function() {
+    $("." + target).addClass("active");
+  }, delay);
 }

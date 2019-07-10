@@ -25,6 +25,10 @@
 
 <https://bagelee.com/programming/pwa/ios-korekara-pwa/>
 
+### 画像を localStorage に保存、取得
+
+<https://qiita.com/shimtaro_sakai/items/c29cf477503bd157632d>
+
 ### ICON
 
 <https://material.io/tools/icons/>
