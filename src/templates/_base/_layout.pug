@@ -11,10 +11,6 @@ html(lang = LANG )
   head
     include ../_parts/_head
 
-  body.center(class= page.id)
-    .l-wrapper
-      include ../_parts/_header
-      .l-main
-        block content
-
-      include ../_parts/_foot
+  body(class= page.id)
+    block content
+    include ../_parts/_foot

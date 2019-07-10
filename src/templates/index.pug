@@ -11,16 +11,27 @@ append vars
     // page.scripts = ["https://code.jquery.com/jquery-3.4.1.min.js","https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js","https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"]
 
 block content
-  // 初期
-  label#upload_btn_label(for='upload_btn')
-    i.material-icons camera_alt
-    input#upload_btn(type='file')
   // 生成
   canvas#canvas
-  // 保存
-  #newImg_block
-    #navi 画像長押しで保存
-    img#newImg(alt='生成画像')
-  #footer_block
-    button#retry_btn
-      i.material-icons close
+  // 初期
+  .home.active
+    // アップロード
+    label#upload_btn_label(for='upload_btn')
+      i.material-icons camera_alt
+      input#upload_btn(type='file')
+  // セッティング
+  .setting
+    canvas#canvas_setting
+    label#upload_overlay_img(for='upload_overlay_img_btn')
+      i.material-icons insert_photo
+      input#upload_overlay_img_btn(type='file')
+    button#reset_btn
+        i.material-icons replay
+  // 生成された
+  .generated
+    #newImg_block
+      #navi 画像長押しで保存
+      img#newImg(alt='生成画像')
+    #footer_block
+      button#retry_btn
+        i.material-icons close

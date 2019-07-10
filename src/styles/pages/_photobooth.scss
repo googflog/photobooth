@@ -12,11 +12,6 @@ body {
   background: #000;
   font-family: "Roboto", sans-serif;
   position: relative;
-  &.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }
 * {
   box-sizing: border-box;
@@ -34,7 +29,26 @@ body {
   /* キャンバス */
 
   #canvas {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .home,
+  .setting,
+  .generated {
+    min-width: 100vw;
+    min-height: 100vh;
     display: none;
+  }
+  .home.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .setting.active,
+  .generated.active {
+    display: block;
   }
 
   /* ダウンロード画像 */
@@ -55,15 +69,10 @@ body {
     width: 100%;
   }
 
-  #newImg_block {
-    display: none;
-  }
-
   /* フッター */
 
   #footer_block {
     position: relative;
-    display: none;
     width: 100%;
     text-align: center;
     padding: calc(100vw * 50 / 750) 0;
