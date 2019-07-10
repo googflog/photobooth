@@ -1,0 +1,521 @@
+/**
+ * Mixin
+ */
+ 
+  // vw基準のcalc返す $viewport == PSDの横幅
+  @function calc-w($size, $viewport:750) {
+    @return calc(100vw * (#{$size} / #{$viewport}));
+  }
+  @function calc-pc($size, $viewport:1280) {
+    @return calc(100vw * (#{$size} / #{$viewport}));
+  }
+  @function calc-tablet($size, $viewport:1000) {
+    @return calc(100vw * (#{$size} / #{$viewport}));
+  }
+  @function calc-sp($size, $viewport:750) {
+    @return calc(100vw * (#{$size} / #{$viewport}));
+  }
+  //
+  //
+  //
+  // vw基準のmarginを設定
+  @mixin margin_calc($top:auto, $right:auto, $bottom:auto, $left:auto, $viewport:750) {
+    @if $top != auto {
+      @if $top == 0 {
+        $top: 0;
+      } @else {
+        $top: calc-w(#{$top},#{$viewport});
+      }
+    }
+    @if $bottom!=auto {
+      @if $bottom == 0 {
+        $bottom: 0;
+      } @else {
+        $bottom: calc-w(#{$bottom},#{$viewport});
+      }
+    }
+    @if $left!=auto {
+      @if $left == 0 {
+        $left: 0;
+      } @else {
+        $left: calc-w(#{$left},#{$viewport});
+      }
+    }
+    @if $right!=auto {
+      @if $right == 0 {
+        $right: 0;
+      } @else {
+        $right: calc-w(#{$right},#{$viewport});
+      }
+    }
+    margin: $top $right $bottom $left;
+  }
+  //
+  @mixin margin_calc-pc($top:auto, $right:auto, $bottom:auto, $left:auto) {
+    @include margin_calc($top,$right,$bottom,$left,1280);
+  }
+  @mixin margin_calc-tablet($top:auto, $right:auto, $bottom:auto, $left:auto) {
+    @include margin_calc($top,$right,$bottom,$left,1000);
+  }
+  @mixin margin_calc-sp($top:auto, $right:auto, $bottom:auto, $left:auto) {
+    @include margin_calc($top,$right,$bottom,$left,750);
+  }
+  //
+  //
+  //
+  // vw基準のpaddingを設定
+  @mixin padding_calc($top:auto, $right:auto, $bottom:auto, $left:auto, $viewport:750) {
+    @if $top != auto {
+      @if $top == 0 {
+        $top: 0;
+      } @else {
+        $top: calc-w(#{$top},#{$viewport});
+      }
+    }
+    @if $bottom!=auto {
+      @if $bottom == 0 {
+        $bottom: 0;
+      } @else {
+        $bottom: calc-w(#{$bottom},#{$viewport});
+      }
+    }
+    @if $left!=auto {
+      @if $left == 0 {
+        $left: 0;
+      } @else {
+        $left: calc-w(#{$left},#{$viewport});
+      }
+    }
+    @if $right!=auto {
+      @if $right == 0 {
+        $right: 0;
+      } @else {
+        $right: calc-w(#{$right},#{$viewport});
+      }
+    }
+    padding: $top $right $bottom $left;
+  }
+  //
+  @mixin padding_calc-pc($top:auto, $right:auto, $bottom:auto, $left:auto) {
+    @include padding_calc($top,$right,$bottom,$left,1280);
+  }
+  @mixin padding_calc-tablet($top:auto, $right:auto, $bottom:auto, $left:auto) {
+    @include padding_calc($top,$right,$bottom,$left,1000);
+  }
+  @mixin padding_calc-sp($top:auto, $right:auto, $bottom:auto, $left:auto) {
+    @include padding_calc($top,$right,$bottom,$left,750);
+  }
+  //
+  //
+  //
+  // vw基準のサイズを設定
+  @mixin wh_calc($w_size:null, $h_size:null, $viewport:1280) {
+    @if $w_size {
+      max-width: #{$w_size}px;
+      width: calc-w(#{$w_size} , #{$viewport});
+    } @else {
+      max-width: none;
+    }
+    @if $h_size {
+      max-height: #{$h_size}px;
+      height: calc-w(#{$h_size} , #{$viewport});
+    } @else {
+      max-height: none;
+    }
+  }
+  // vw基準のサイズを設定 PC
+  @mixin wh_calc-pc($w_size:null, $h_size:null, $viewport:1280) {
+    @include wh_calc($w_size,$h_size,1280);
+  }
+  // vw基準のサイズを設定 SP
+  @mixin wh_calc-tablet($w_size:null, $h_size:null) {
+    @include wh_calc($w_size,$h_size,1000);
+  }
+  // vw基準のサイズを設定 SP
+  @mixin wh_calc-sp($w_size:null, $h_size:null) {
+    @include wh_calc($w_size,$h_size,750);
+  }
+  //
+  //
+  //
+  @mixin font_set($fz-pc, $lh-pc, $ls-pc, $fz-sp, $lh-sp, $ls-sp) {
+    @include mq-pc {
+      font-size: #{$fz-pc}px;
+      line-height: #{$lh-pc}px;
+      letter-spacing: #{$ls-pc}em;
+    }
+    @include mq-tablet {
+      font-size: #{$fz-pc}px;
+      line-height: #{$lh-pc}px;
+      letter-spacing: #{$ls-pc}em;
+    }
+    @include mq-sp {
+      @include fz_vw($fz-sp);
+      @include lh_em($fz-sp,$lh-sp);
+      letter-spacing: #{$ls-sp}em;
+    }
+  }
+  
+  
+ // vwサイズを返す
+ @function get_vw($size, $viewport:750) {
+   $rate: 100 / $viewport;
+   @return $rate * $size * 1vw;
+ }
+ @mixin fz_vw($font_size:10) {
+   font-size: $font_size * 1px;
+   font-size: get_vw($font_size);
+ }
+ //フォントサイズに対してのラインハイトの比率を出す
+ @mixin lh_em($size, $lineheight) {
+   line-height: $lineheight / $size + 0em;
+ }
+
+ //背景に画像を指定
+ @mixin bgImg($path,$w,$h,$base) {
+   @if($path!='none') {
+     background: url($path) no-repeat;
+     background-size: contain;
+   }
+   display: block;
+   height: 0;
+   max-width: $w + 0px;
+   width: percentage($w/$base);
+   padding-bottom: percentage($h/$base);
+   margin: 0;
+   overflow: hidden;
+   text-indent: -999em;
+   @media screen and (min-width: 1280px) {
+     padding: 0;
+     height: $h + 0px;
+   }
+ }
+//クリアフィックス
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+@mixin hideaway {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+//
+//
+//
+// PC
+.u-pc {
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+// タブレット or SP横向き or PC
+.u-tablet_pc {
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+}
+// タブレット or SP横向き
+.u-tablet {
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+  @media screen and (min-width: 1001px) {
+    display: none;
+  }
+}
+// SP縦向き or タブレット or SP横向き
+.u-sp_tablet {
+  @media screen and (min-width: 1001px) {
+    display: none;
+  }
+}
+// SP縦向き
+.u-sp {
+  @media screen and (min-width: 601px) {
+    display: none;
+  }
+}
+//
+//
+//
+// PC
+@mixin mq-pc {
+  @media screen and (min-width: 1001px) {
+    @content;
+  }
+}
+// タブレット or SP横向き or PC
+@mixin mq-tablet_pc {
+  @media screen and (min-width: 601px) {
+    @content;
+  }
+}
+// タブレット or SP横向き
+@mixin mq-tablet {
+  @media screen and (min-width: 601px) and (max-width: 1000px) {
+    @content;
+  }
+}
+// SP縦向き or タブレット or SP横向き
+@mixin mq-sp_tablet {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+// SP縦向き
+@mixin mq-sp {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+//
+//
+//
+// landscape
+@mixin mq-landscape {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+@mixin bgImgSet() {
+  overflow: hidden;
+  text-indent: -999em;
+}
+@function halfSizeImg($value) {
+  @return ($value/2)+ 0px;
+}
+@function halfSizeImgPar($value) {
+  @return ($value/2)+ 0%;
+}
+@function SpWidth640($value) {
+  @return (100/640)*$value+ 0%;
+}
+@function SpWidth540($value) {
+  @return (100/540)*$value+ 0%;
+}
+@function SpWidth590($value) {
+  @return (100/590)*$value+ 0%;
+}
+@function SpWidth750($value) {
+  @return (100/750)*$value+ 0%;
+}
+@function SpWidth($valueBase,$value) {
+  @return (100/$valueBase)*$value+ 0%;
+}
+//
+@mixin imgSet($w,$h,$path,$top:null,$left:null,$right:null,$bottom:null) {
+  width: halfSizeImg($w);
+  height: halfSizeImg($h);
+  background: url($path) no-repeat;
+  background-size: contain;
+  text-indent: -999em;
+  @if $top !=null {
+    top: halfSizeImg($top);
+  }
+  @if $left!=null {
+    left: halfSizeImg($left);
+  }
+  @if $right!=null {
+    right: halfSizeImg($right);
+  }
+  @if $bottom!=null {
+    bottom: halfSizeImg($bottom);
+  }
+  @if $top != null or $left != null or $right != null or $bottom != null {
+    position: absolute;
+  }
+}
+//
+@mixin imgSetSet($w,$h,$base,$path:null,$position:null,$top:null,$left:null,$bottom:null,$right:null) {
+  width: percentage(($w / $base));
+  height: 0;
+  @if $h != null {
+    padding-bottom: percentage(($h / $base));
+  }
+  @if $path != null {
+    background: url($path) center center no-repeat;
+  }
+  background-size: contain;
+  text-indent: -999em;
+  @if $top!=null {
+    top: 0;
+    margin-top: percentage(($top / $base));
+  }
+  @if $left!=null {
+    left: percentage(($left / $base));
+  }
+  @if $right!=null {
+    right: percentage(($right / $base));
+  }
+  @if $bottom!=null {
+    margin-bottom: percentage(($bottom / $base));
+  }
+
+  @if $position == "absolute" or $position == "relative" {
+    position: $position;
+  }
+}
+@mixin imgSetSp($w,$h,$path,$top:null,$left:null,$right:null,$bottom:null,$parentW:750) {
+  width: (100/$parentW)*$w+ 0%;
+  height: 0;
+  padding-bottom: (100/$parentW)*$h+ 0%;
+  background: url($path) center center no-repeat;
+  background-size: contain;
+  text-indent: -999em;
+  @if $top !=null {
+    top: (100/$parentW)*$top+ 0%;
+  }
+  @if $left!=null {
+    left: (100/$parentW)*$left+ 0%;
+  }
+  @if $right!=null {
+    right: (100/$parentW)*$right+ 0%;
+  }
+  @if $bottom!=null {
+    bottom: (100/$parentW)*$bottom+ 0%;
+  }
+  @if $top != null or $left != null or $right != null or $bottom != null {
+    position: absolute;
+  }
+}
+@mixin for-size($range) {
+  $phone-upper-boundary: constants('phoneUpperBoundary') +  0px;
+  $tablet-portrait-upper-boundary: constants('tabletPortraitUpperBoundary') +  0px;
+  $tablet-landscape-upper-boundary: constants('tabletLandscapeUpperBoundary') +  0px;
+  $desktop-upper-boundary: constants('desktopUpperBoundary') +  0px;
+  @if $range == phone-only {
+    @media (max-width: #{$phone-upper-boundary - 1}) {
+      //このサイズより小さい場合
+      @content;
+    }
+  } @else 
+  if $range == tablet-portrait-up {
+    @media (min-width: $phone-upper-boundary) {
+      //このサイズより大きい場合に適用
+      @content;
+    }
+  } @else 
+  if $range == tablet-landscape-up {
+    @media (min-width: $tablet-portrait-upper-boundary) {
+      //このサイズより大きい場合に適用
+      @content;
+    }
+  } @else 
+  if $range == desktop-up {
+    @media (min-width: $tablet-landscape-upper-boundary) {
+      //このサイズより大きい場合に適用
+      @content;
+    }
+  } @else 
+  if $range == big-desktop-up {
+    @media (min-width: $desktop-upper-boundary) {
+      //このサイズより大きい場合に適用
+      @content;
+    }
+  } @else 
+  if $range == desktop-down {
+    @media (max-width: $tablet-landscape-upper-boundary) {
+      //このサイズより小さい場合
+      @content;
+    }
+  } @else 
+  if $range == tablet-landscape-down {
+    @media (max-width: $tablet-portrait-upper-boundary) {
+      //このサイズより小さい場合
+      @content;
+    }
+  } @else 
+  if $range == tablet-portrait-down {
+    @media (max-width: $phone-upper-boundary) {
+      //このサイズより小さい場合
+      @content;
+    }
+  }
+}
+@mixin arrow {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 0;
+    right: 13px;
+    margin: auto;
+    width: 10px;
+    height: 0;
+    border-bottom: solid 1px #fff;
+    transform-origin: center right;
+    transform: rotate(40deg);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    bottom: 0;
+    right: 13px;
+    margin: auto;
+    width: 20px;
+    height: 0;
+    border-bottom: solid 1px #fff;
+  }
+  @include for-size(phone-only) {
+    &:after {
+      top: 3px;
+      right: 9px;
+      width: 9px;
+    }
+
+    &:before {
+      top: 3px;
+      right: 9px;
+      width: 15px;
+    }
+  }
+}
+@mixin arrow2($val) {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 0;
+    right: 13px;
+    margin: auto;
+    width: 10px;
+    height: 0;
+    border-bottom: solid 1px #fff;
+    transform-origin: center right;
+    transform: rotate(40deg);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    bottom: 0;
+    right: 13px;
+    margin: auto;
+    width: 20px;
+    height: 0;
+    border-bottom: solid 1px #fff;
+  }
+  @media (max-width: $val) {
+    &:after {
+      top: 3px;
+      right: auto;
+      left: 58px;
+      width: 9px;
+    }
+
+    &:before {
+      top: 3px;
+      right: auto;
+      left: 52px;
+      width: 15px;
+    }
+  }
+}

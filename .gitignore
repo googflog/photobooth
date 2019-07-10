@@ -1,0 +1,6 @@
+.DS_Store
+.Thumb_DB
+package-lock.json
+node_modules/
+dist/dev/
+dist/stage/

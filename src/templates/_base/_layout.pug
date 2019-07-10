@@ -1,0 +1,20 @@
+include ./_mixins
+
+//- 各 pugページ で設定された値を反映
+-
+  var page = {}
+block vars
+
+
+doctype html
+html(lang = LANG )
+  head
+    include ../_parts/_head
+
+  body.center(class= page.id)
+    .l-wrapper
+      include ../_parts/_header
+      .l-main
+        block content
+
+      include ../_parts/_foot

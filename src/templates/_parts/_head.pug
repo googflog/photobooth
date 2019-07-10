@@ -1,0 +1,21 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+title= page.title ? page.title : SITE_NAME
+meta(name="description" content= page.description ? page.description : SITE_DESCRIPTION)
+meta(name="keywords" content= page.keywords ? page.keywords : SITE_KEYWORDS)
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+link(rel="stylesheet" href= CSS_PATH + "app.css"+ VERSION)
+if Array.isArray(page.styles)
+  each style in page.styles
+    link(rel="stylesheet" href= style + VERSION)
+
+// Progressive Web Apps 化
+meta(name='apple-mobile-web-app-capable', content='yes')
+meta(name='apple-mobile-web-app-status-bar-style', content='black')
+meta(name='apple-mobile-web-app-title', content='PhotoBooth')
+link(rel='apple-touch-icon', href=IMAGES_PATH+'icon/app-icon.png', sizes='72x72')
+link(rel='apple-touch-icon', href=IMAGES_PATH+'icon/app-icon.png', sizes='114x114')
+link(rel='apple-touch-icon', href=IMAGES_PATH+'icon/app-icon.png', sizes='120x120')
+link(rel='apple-touch-icon', href=IMAGES_PATH+'icon/app-icon.png', sizes='144x144')
+// Progressive Web Apps 化 オワリ

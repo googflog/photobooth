@@ -1,0 +1,7 @@
+include ./_footer
+//- script(src= JS_PATH + "libs.js" + VERSION)
+//- script(src= JS_PATH + "vendor.js" + VERSION)
+script(src= JS_PATH + "app.js" + VERSION)
+if Array.isArray(page.scripts)
+  each script in page.scripts
+    script(src= script + VERSION)

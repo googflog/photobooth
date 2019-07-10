@@ -1,3 +1,7 @@
+//ライブラリ埋め込み
+// import $ from "jquery";
+import EXIF from "exif-js";
+
 $(function() {
   /** キャンバス */
   var canvas = document.getElementById("canvas");
@@ -120,7 +124,7 @@ $(function() {
   function drawDecoration() {
     var img = new Image();
     img.crossOrigin = "anonymous";
-    img.src = "./img/deco.png";
+    img.src = "/assets/images/deco_2019_7_10.png";
 
     img.onload = function() {
       // context.drawImage(img, imgWidth / 2 - 749 / 2, 30); // 749 x 289
