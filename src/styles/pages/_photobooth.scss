@@ -1,6 +1,6 @@
 $targettype: $TARGETTYPE;
 $page_class: photobooth;
-$imgPath: $IMAGES_PATH;
+$imgPath: "../../" + $IMAGES_PATH;
 
 html {
   height: 100%;

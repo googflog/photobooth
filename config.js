@@ -20,7 +20,7 @@ GA_ID = "";
 LANG = "ja";
 
 /** 書き出しファイル内パス FilePath */
-IMAGES_PATH = "../../assets/images/";
+IMAGES_PATH = "./assets/images/";
 IMAGES_PATH_STAG = IMAGES_PATH;
 IMAGES_PATH_PROD = IMAGES_PATH;
 
