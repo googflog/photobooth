@@ -2,6 +2,15 @@
 
 <https://googflog.github.io/photobooth/dist/prod/>
 
+## Web サイトをホームにインストール（Web Clip の作り方）
+
+PWA 対応なので Web サイトのショートカットをホーム画面にアプリのように置いて使用することができます。
+
+1. Safari で画面下部の「共有」を押して「UIActivityViewController」を表示
+2. 「UIActivityViewController」最下部から「ホーム画面に追加」を探して選択
+3. 「ホームに追加」画面が開くのでタイトルを設定
+4. 「追加」を押す
+
 ## デコレーション用 png データについて
 
 プリントされた紙を上下左右 5mm をカットするので、デコレーション用 png のデータは余白分を含んだデータを作成すること。
