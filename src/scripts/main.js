@@ -63,18 +63,21 @@ $(function() {
 
   /** 画像が指定されたら */
   function upLoadImg(e) {
+    // Home画面 を消す
     $home.removeClass("active");
 
     // ファイル情報を取得
     var fileData = e.target.files[0];
 
-    // 画像ファイル以外は処理を止める
-    if (!fileData.type.match("image.*")) {
-      alert("画像を選択してください");
+    // 参照キャンセル時
+    if (fileData == undefined || fileData == "") {
       sceneToChange("home");
       return;
     }
-    if (fileData === undefined) {
+
+    // 画像ファイル以外は処理を止める
+    if (!fileData.type.match("image.*")) {
+      alert("画像を選択してください");
       sceneToChange("home");
       return;
     }
