@@ -1,4 +1,35 @@
-## 開発
+## DEMO
+
+<https://googflog.github.io/photobooth/dist/prod/>
+
+## デコレーション用 png データについて
+
+プリントされた紙を上下左右 5mm をカットするので、デコレーション用 png のデータは余白分を含んだデータを作成すること。
+
+```
+画像解像度 : 印刷に耐える解像度
+アスペクト比 : 119：89
+```
+
+## 対応プリンタ
+
+### CANON コンパクトフォトプリンター SELPHY
+
+#### 用紙サイズ・フチ無し
+
+```
+W:119mm
+H:89mm
+```
+
+#### トリミング後
+
+```
+W:109mm
+H:79mm
+```
+
+## 開発環境
 
 ### 初期インストール
 
@@ -19,10 +50,6 @@
 
 `npm run production`
 
-## DEMO
-
-<https://googflog.github.io/photobooth/dist/prod/>
-
 ## 参考
 
 ### Canvas で画像の Exif の向きを調整する方法
@@ -37,33 +64,14 @@
 
 <https://qiita.com/shimtaro_sakai/items/c29cf477503bd157632d>
 
-### ICON
+### マテリアルデザイン向けに作成された Google アイコンフォント「Material icons」
+
+<https://nelog.jp/how-to-use-google-material-icons>
+
+### Material icons
 
 <https://material.io/tools/icons/>
 
-## 対応プリンタ
+### input[type=“file]でキャンセル押下時にプレビュー画面を削除する方法
 
-### CANON コンパクトフォトプリンター SELPHY
-
-#### 用紙サイズ・フチ無し
-
-```
-W:119mm
-H:89mm
-```
-
-#### トリミング後
-
-```
-W:109mm
-H:79mm
-```
-
-## デコレーション用 png データについて
-
-プリントされた紙を上下左右 5mm をカットするので、デコレーション用 png のデータは余白分を含んだデータを作成すること。
-
-```
-画像解像度 : 印刷に耐える解像度
-アスペクト比 : 119：89
-```
+<https://dymingcode.com/file_upload/>
