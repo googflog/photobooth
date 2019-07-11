@@ -70,9 +70,24 @@ body {
     background: rgba(0, 0, 0, 0.7);
     color: white;
     font-weight: bold;
-    font-size: 4vw;
+    font-size: calc-sp(35);
     position: sticky;
     top: 0;
+    position: relative;
+    text-align: right;
+    p {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      height: 1em;
+      text-align: center;
+    }
+    button {
+      display: inline-block;
+    }
   }
 
   #newImg {
@@ -97,15 +112,6 @@ body {
   }
   #upload_overlay_img {
     margin-bottom: calc-sp(40);
-  }
-
-  /* フッター */
-
-  #footer_block {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    padding: calc-sp(50) 0;
   }
 
   /* ボタン */
@@ -136,11 +142,10 @@ body {
   #settings_close_btn {
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.3);
   }
+  #retry_btn,
   #reset_btn {
     width: calc-sp(100);
     height: calc-sp(100);
-    background: #ccc;
-    border-bottom: solid 3px #888;
     border-radius: calc(100vw * 20 / 750);
     .material-icons {
       font-size: calc-sp(60);
@@ -148,6 +153,13 @@ body {
       height: calc-sp(60);
       transform: translateY(calc-sp(1));
     }
+  }
+  #retry_btn {
+    margin: 0;
+  }
+  #reset_btn {
+    background: #ccc;
+    border-bottom: solid 3px #888;
   }
 
   label {
