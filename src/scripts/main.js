@@ -74,6 +74,10 @@ $(function() {
       sceneToChange("home");
       return;
     }
+    if (fileData === undefined) {
+      sceneToChange("home");
+      return;
+    }
 
     // EXIFを調べる
     EXIF.getData(fileData, function() {
