@@ -48,7 +48,6 @@ $(function() {
     $imgWidthInput.val(imgWidth);
     $imgHeightInput.val(imgHeight);
   }
-  console.log("#");
 
   $imgWidthInput.on("change", function(e) {
     var max = parseFloat($imgWidthInput.attr("max"));

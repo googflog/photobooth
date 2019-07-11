@@ -17,9 +17,9 @@ const browserSync = require("browser-sync");
 const runSequence = require("run-sequence");
 const watch = require("gulp-watch");
 
-const pngquant = require("imagemin-pngquant");
-const mozjpeg = require("imagemin-mozjpeg");
-const imagemin = require("gulp-imagemin");
+// const pngquant = require("imagemin-pngquant");
+// const mozjpeg = require("imagemin-mozjpeg");
+// const imagemin = require("gulp-imagemin");
 
 const minimist = require("minimist");
 const del = require("del");
@@ -88,14 +88,14 @@ gulp.task("watch", function() {
 gulp.task("images", function() {
   gulp
     .src(SRC_IMAGES + "**/*.{jpg,jpeg,png,gif,svg}")
-    .pipe(
-      imagemin([
-        pngquant("65-80"),
-        mozjpeg({ quality: 80 }),
-        imagemin.svgo(),
-        imagemin.gifsicle()
-      ])
-    )
+    // .pipe(
+    //   imagemin([
+    //     pngquant("65-80"),
+    //     mozjpeg({ quality: 80 }),
+    //     imagemin.svgo(),
+    //     imagemin.gifsicle()
+    //   ])
+    // )
     .pipe(gulp.dest(DIST + DIST_IMAGES));
   gulp
     .src(SRC_IMAGES + "**/*.{mp4,mp3,webm,woff,woff2,eot,ttf,html,json}")
