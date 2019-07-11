@@ -19,17 +19,32 @@ block content
       i.material-icons settings
   // セッティング
   .setting(data-default_overlay_img_path = IMAGES_PATH + "deco_2019_7_10.png" )
+
+
+    .header
+      .header_left
+        button#settings_close_btn
+          i.material-icons close
+        p Setting
+      .header_right
+        label#upload_overlay_img(for='upload_overlay_img_btn')
+          i.material-icons insert_photo
+          input#upload_overlay_img_btn(type='file')
+        button#reset_btn
+            i.material-icons replay
+    .imgsize
+      div
+        p Generated image size
+      div
+        .input_inline
+          input#imgWidth(type="number" value="0")
+        .input_inline ×
+        .input_inline
+          input#imgHeight(type="number" value="0")
+      button#reset_wh_btn
+            i.material-icons replay
     canvas#canvas_setting
 
-    div
-      label#upload_overlay_img(for='upload_overlay_img_btn')
-        i.material-icons insert_photo
-        input#upload_overlay_img_btn(type='file')
-      button#reset_btn
-          i.material-icons replay
-    
-    button#settings_close_btn
-      i.material-icons close
   // 生成された
   .generated
     #newImg_block

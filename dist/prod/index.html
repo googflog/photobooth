@@ -31,14 +31,34 @@
     </div>
     <!-- セッティング-->
     <div class="setting" data-default_overlay_img_path="./assets/images/deco_2019_7_10.png">
-      <canvas id="canvas_setting"></canvas>
-      <div>
-        <label id="upload_overlay_img" for="upload_overlay_img_btn"><i class="material-icons">insert_photo</i>
-          <input id="upload_overlay_img_btn" type="file">
-        </label>
-        <button id="reset_btn"><i class="material-icons">replay</i></button>
+      <div class="header">
+        <div class="header_left">
+          <button id="settings_close_btn"><i class="material-icons">close</i></button>
+          <p>Setting</p>
+        </div>
+        <div class="header_right">
+          <label id="upload_overlay_img" for="upload_overlay_img_btn"><i class="material-icons">insert_photo</i>
+            <input id="upload_overlay_img_btn" type="file">
+          </label>
+          <button id="reset_btn"><i class="material-icons">replay</i></button>
+        </div>
       </div>
-      <button id="settings_close_btn"><i class="material-icons">close</i></button>
+      <div class="imgsize">
+        <div>
+          <p>Generated image size</p>
+        </div>
+        <div>
+          <div class="input_inline">
+            <input id="imgWidth" type="number" value="0">
+          </div>
+          <div class="input_inline">×</div>
+          <div class="input_inline">
+            <input id="imgHeight" type="number" value="0">
+          </div>
+        </div>
+        <button id="reset_wh_btn"><i class="material-icons">replay</i></button>
+      </div>
+      <canvas id="canvas_setting"></canvas>
     </div>
     <!-- 生成された-->
     <div class="generated">

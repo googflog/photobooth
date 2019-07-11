@@ -20,16 +20,13 @@ body {
 }
 
 .#{$page_class} {
-  @charset "UTF-8";
-
   @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 
   @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
   /* キャンバス */
 
-  #canvas,
-  #canvas_setting {
+  #canvas {
     position: absolute;
     top: 0;
     width: 100vw;
@@ -51,14 +48,95 @@ body {
     display: none;
     background: #000;
   }
-  .setting.active,
   .home.active {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  .setting.active,
   .generated.active {
     display: block;
+  }
+
+  /* 設定 */
+  .header {
+    position: sticky;
+    padding: calc-sp(30);
+    height: calc(100vw * (160 / 750));
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr calc(100vw * (220 / 750));
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    .header_left {
+      text-align: left;
+      // display: flex;
+      display: flex;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+    }
+    .header_right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    p {
+      color: #fff;
+      margin-left: 1em;
+    }
+  }
+  #canvas_setting {
+    top: calc-sp(160);
+  }
+  #settings_close_btn {
+    display: inline-block;
+  }
+  #settings_close_btn,
+  #reset_btn,
+  #upload_overlay_img {
+    margin: 0;
+  }
+
+  .imgsize {
+    color: #fff;
+    display: grid;
+    display: none;
+    grid-template-columns: 1fr calc-sp(433) calc-sp(103);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0 auto;
+    width: 100%;
+    border-top: solid 1px rgba(#fff, 0.2);
+    border-bottom: solid 1px rgba(#fff, 0.2);
+    padding: calc-sp(30);
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .input_inline {
+      display: flex;
+      align-items: center;
+    }
+    p {
+      font-size: calc-sp(30);
+      line-height: 1.3em;
+    }
+    input {
+      color: #fff;
+      border: 0;
+      padding: calc-sp(10);
+      margin: 0 calc-sp(10);
+      font-size: calc-sp(40);
+      border: solid 1px rgba(#fff, 0);
+      width: 4em;
+      background: #434343;
+      text-align: center;
+      user-select: auto;
+    }
   }
 
   /* ダウンロード画像 */
@@ -93,7 +171,6 @@ body {
   #newImg {
     width: 100%;
   }
-  #settings_close_btn,
   #settings_btn {
     position: absolute;
     top: calc-sp(20);
@@ -109,9 +186,6 @@ body {
       width: calc-sp(88);
       height: calc-sp(88);
     }
-  }
-  #upload_overlay_img {
-    margin-bottom: calc-sp(40);
   }
 
   /* ボタン */
@@ -139,10 +213,13 @@ body {
     border-radius: calc(100vw * 30 / 750);
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   }
-  #settings_close_btn {
-    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.3);
-  }
+  // #settings_close_btn {
+  //   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.3);
+  // }
+  #upload_overlay_img,
+  #settings_close_btn,
   #retry_btn,
+  #reset_wh_btn,
   #reset_btn {
     width: calc-sp(100);
     height: calc-sp(100);
@@ -157,6 +234,7 @@ body {
   #retry_btn {
     margin: 0;
   }
+  #reset_wh_btn,
   #reset_btn {
     background: #ccc;
     border-bottom: solid 3px #888;

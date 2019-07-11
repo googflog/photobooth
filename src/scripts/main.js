@@ -13,10 +13,12 @@ $(function() {
   const ctx_setting = canvas_setting.getContext("2d");
 
   /** 書き出す画像のサイズ設定 */
-  // const imgWidth = 1280;
-  // const imgHeight = 2274;
-  const imgWidth = 1512;
-  const imgHeight = 2016;
+  // let imgWidth = 1280;
+  // let imgHeight = 2274;
+  const imgWidth_int = 1512;
+  const imgHeight_int = 2016;
+  let imgWidth = imgWidth_int;
+  let imgHeight = imgHeight_int;
 
   let orientation;
 
@@ -30,8 +32,42 @@ $(function() {
   const $canvas_setting = $("#canvas_setting");
   const $upload_overlay_img_btn = $("#upload_overlay_img_btn");
 
+  const $imgWidthInput = $("#imgWidth");
+  const $imgHeightInput = $("#imgHeight");
+  const $reset_wh_btn = $("#reset_wh_btn");
+
   /** シーン */
   const $home = $(".home");
+
+  /** 生成画像サイズの設定 */
+  if (!localStorage.getItem("photobooth_data_imgWidth")) {
+    imgSizeSave();
+  } else {
+    imgWidth = localStorage.getItem("photobooth_data_imgWidth");
+    imgHeight = localStorage.getItem("photobooth_data_imgHeight");
+    $imgWidthInput.val(imgWidth);
+    $imgHeightInput.val(imgHeight);
+  }
+
+  $imgWidthInput.on("change", function(e) {
+    imgWidth = $imgWidthInput.val();
+    imgSizeSave();
+  });
+  $imgHeightInput.on("change", function(e) {
+    imgHeight = $imgHeightInput.val();
+    imgSizeSave();
+  });
+  $reset_wh_btn.on("click", function() {
+    imgWidth = imgWidth_int;
+    imgHeight = imgHeight_int;
+    imgSizeSave();
+  });
+  function imgSizeSave() {
+    window.localStorage["photobooth_data_imgWidth"] = imgWidth;
+    window.localStorage["photobooth_data_imgHeight"] = imgHeight;
+    $imgWidthInput.val(imgWidth);
+    $imgHeightInput.val(imgHeight);
+  }
 
   /** デコレーション画像の設定 */
   let overlay_img_obj;
