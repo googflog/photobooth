@@ -13,8 +13,10 @@ $(function() {
   const ctx_setting = canvas_setting.getContext("2d");
 
   /** 書き出す画像のサイズ設定 */
-  const imgWidth = 1280;
-  const imgHeight = 2274;
+  // const imgWidth = 1280;
+  // const imgHeight = 2274;
+  const imgWidth = 1512;
+  const imgHeight = 2016;
 
   let orientation;
 
@@ -27,6 +29,9 @@ $(function() {
   const $canvas = $("#canvas");
   const $canvas_setting = $("#canvas_setting");
   const $upload_overlay_img_btn = $("#upload_overlay_img_btn");
+
+  /** シーン */
+  const $home = $(".home");
 
   /** デコレーション画像の設定 */
   let overlay_img_obj;
@@ -54,10 +59,12 @@ $(function() {
   }
 
   /** 画像ファイルフォーム変更イベント */
-  $upload_btn[0].addEventListener("change", upLoadImg, false);
+  $upload_btn.on("change", upLoadImg);
 
   /** 画像が指定されたら */
   function upLoadImg(e) {
+    $home.removeClass("active");
+
     // ファイル情報を取得
     var fileData = e.target.files[0];
 

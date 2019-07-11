@@ -5,8 +5,8 @@ STAGE_SITE_URL = "";
 /** META */
 SITE_NAME = "PhotoBooth";
 SITE_URL = "";
-SITE_DESCRIPTION = "ディスプリプション";
-SITE_KEYWORDS = "キーワード,キーワード,キーワード";
+SITE_DESCRIPTION = "手軽に写真に賑やかしを合成 📷";
+SITE_KEYWORDS = "カメラ,合成,プリクラ";
 SITE_OGP_URL = SITE_URL;
 SITE_OGP_TITLE = SITE_NAME;
 SITE_OGP_DESCRIPTION = SITE_DESCRIPTION;
@@ -20,7 +20,7 @@ GA_ID = "";
 LANG = "ja";
 
 /** 書き出しファイル内パス FilePath */
-IMAGES_PATH = "./assets/images/";
+IMAGES_PATH = "../../assets/images/";
 IMAGES_PATH_STAG = IMAGES_PATH;
 IMAGES_PATH_PROD = IMAGES_PATH;
 

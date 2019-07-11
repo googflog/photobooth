@@ -9,7 +9,7 @@ html {
 body {
   height: 100%;
   margin: 0;
-  background: #000;
+  background: #000 url($imgPath+"icon/loading.gif") center no-repeat;
   font-family: "Roboto", sans-serif;
   position: relative;
 }
@@ -38,6 +38,10 @@ body {
   #canvas {
     display: none;
   }
+  #canvas_setting {
+    width: 100vw;
+    height: calc(100vw * (4032 / 3024));
+  }
 
   .home,
   .setting,
@@ -45,6 +49,7 @@ body {
     min-width: 100vw;
     min-height: 100vh;
     display: none;
+    background: #000;
   }
   .setting.active,
   .home.active {
