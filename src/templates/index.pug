@@ -37,10 +37,10 @@ block content
         p Generated image size
       div
         .input_inline
-          input#imgWidth(type="number" value="0")
+          input#imgWidth(type="number" value="0" min="1000" max="5000")
         .input_inline ×
         .input_inline
-          input#imgHeight(type="number" value="0")
+          input#imgHeight(type="number" value="0" min="1000" max="5000")
       button#reset_wh_btn
             i.material-icons replay
     canvas#canvas_setting

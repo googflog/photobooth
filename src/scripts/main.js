@@ -48,12 +48,30 @@ $(function() {
     $imgWidthInput.val(imgWidth);
     $imgHeightInput.val(imgHeight);
   }
+  console.log("#");
 
   $imgWidthInput.on("change", function(e) {
-    imgWidth = $imgWidthInput.val();
+    var max = parseFloat($imgWidthInput.attr("max"));
+    var min = parseFloat($imgWidthInput.attr("min"));
+    var val = parseFloat($imgWidthInput.val());
+    if (max < val) {
+      $imgWidthInput.val(max);
+    } else if (val < min) {
+      $imgWidthInput.val(min);
+    }
+    imgWidth = parseFloat($imgWidthInput.val());
     imgSizeSave();
   });
   $imgHeightInput.on("change", function(e) {
+    var max = parseFloat($imgHeightInput.attr("max"));
+    var min = parseFloat($imgHeightInput.attr("min"));
+    var val = parseFloat($imgHeightInput.val());
+    if (max < val) {
+      $imgHeightInput.val(max);
+    } else if (val < min) {
+      $imgHeightInput.val(min);
+    }
+
     imgHeight = $imgHeightInput.val();
     imgSizeSave();
   });
