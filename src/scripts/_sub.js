@@ -20,13 +20,13 @@ export function sceneToChange(target, delay = 50) {
   const $setting = $(".setting");
   const $generated = $(".generated");
   const $upload_btn = $("#upload_btn");
-  if ($home.hasClass("active")) {
-    $home.removeClass("active");
-    $upload_btn.val("");
-  }
+  if ($home.hasClass("active")) $home.removeClass("active");
   if ($setting.hasClass("active")) $setting.removeClass("active");
   if ($generated.hasClass("active")) $generated.removeClass("active");
   setTimeout(function() {
+    if (target == "home") {
+      $upload_btn.val("");
+    }
     $("." + target).addClass("active");
   }, delay);
 }
