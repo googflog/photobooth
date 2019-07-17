@@ -31,13 +31,11 @@ body {
     top: 0;
     width: 100vw;
     height: 100vh;
-  }
-  #canvas {
     display: none;
   }
   #canvas_setting {
     width: 100vw;
-    height: calc(100vw * (4032 / 3024));
+    // height: calc(100vw * (4032 / 3024));
   }
 
   .home,
@@ -102,7 +100,7 @@ body {
   .imgsize {
     color: #fff;
     display: grid;
-    display: none;
+    // display: none;
     grid-template-columns: 1fr calc-sp(433) calc-sp(103);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
@@ -153,18 +151,17 @@ body {
     top: 0;
     position: relative;
     text-align: right;
+
+    display: grid;
+    grid-template-columns: 1fr calc-sp(100);
+    grid-template-rows: 1fr;
+    grid-column-gap: calc-sp(20);
+    grid-row-gap: 0px;
+
     p {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
       margin: auto;
       height: 1em;
       text-align: center;
-    }
-    button {
-      display: inline-block;
     }
   }
 

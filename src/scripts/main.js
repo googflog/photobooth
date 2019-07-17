@@ -48,7 +48,6 @@ $(function() {
     $imgWidthInput.val(imgWidth);
     $imgHeightInput.val(imgHeight);
   }
-  console.log("#");
 
   $imgWidthInput.on("change", function(e) {
     var max = parseFloat($imgWidthInput.attr("max"));
@@ -71,7 +70,6 @@ $(function() {
     } else if (val < min) {
       $imgHeightInput.val(min);
     }
-
     imgHeight = $imgHeightInput.val();
     imgSizeSave();
   });
@@ -85,6 +83,18 @@ $(function() {
     window.localStorage["photobooth_data_imgHeight"] = imgHeight;
     $imgWidthInput.val(imgWidth);
     $imgHeightInput.val(imgHeight);
+
+    drawCtxImage(ctx_setting, overlay_img_obj, true, false);
+
+    $canvas.attr({
+      width: imgWidth,
+      height: imgHeight
+    });
+
+    $canvas_setting.attr({
+      width: imgWidth,
+      height: imgHeight
+    });
   }
 
   /** デコレーション画像の設定 */
