@@ -119,6 +119,8 @@ body {
     .input_inline {
       display: flex;
       align-items: center;
+      font-size: calc-sp(40);
+      margin: 0 calc-sp(15) 0 0;
     }
     p {
       font-size: calc-sp(30);
@@ -127,11 +129,11 @@ body {
     input {
       color: #fff;
       border: 0;
-      padding: calc-sp(10);
-      margin: 0 calc-sp(10);
+      padding: calc-sp(10) calc-sp(5);
+      margin: 0 0 0 calc-sp(10);
       font-size: calc-sp(40);
       border: solid 1px rgba(#fff, 0);
-      width: 4em;
+      width: 3.5em;
       background: #434343;
       text-align: center;
       user-select: auto;
